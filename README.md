@@ -6,8 +6,6 @@ You can install this app as a PWA on your mobile device, moreover, it is availab
 
 Chrome:   
 Edge:   
-Firefox:   
-Opera:   
 Webapp & PWA: https://webbrowsertools.com/p2p-file-transfer/  
 
 --------------------------------------------------------------
