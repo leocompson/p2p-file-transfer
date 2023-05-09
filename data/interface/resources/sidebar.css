@@ -1,0 +1,210 @@
+.sidebar * {
+	box-sizing: border-box;
+}
+
+.sidebar #page-wrapper {
+  top: 0;
+  left: 0;
+	width: 100%;
+  height: 100%;
+	position: absolute;
+	pointer-events: none;
+}
+
+.sidebar #title {
+	top: 50%;
+	left: 50%;
+	font-size: 2em;
+	color: #f6f6f6;
+	position: absolute;
+	transform: translate(-50%, -50%);
+}
+
+.sidebar #btn {
+  top: 14px;
+  left: 14px;
+	position: fixed;
+	cursor: pointer;
+  transition: left 500ms cubic-bezier(.6, .05, .28, .91);
+}
+
+.sidebar #btn div {
+	width: 14px;
+  height: 2px;
+  margin-bottom: 5px;
+  background-color: grey;
+  transition: transform 500ms cubic-bezier(.6, .05, .28, .91), opacity 500ms, background-color 250ms;
+}
+
+.sidebar #btn.active #middle {opacity: 0}
+.sidebar #btn.active div {background-color: #777}
+.sidebar #btn.active #top {transform: translateY(4px) rotate(-135deg)}
+.sidebar #btn.active #bottom {transform: translateY(-10px) rotate(-45deg)}
+
+.sidebar #btn.active {
+	top: 17px;
+  z-index: 5;
+	left: 275px;
+}
+
+.sidebar #box {
+  top: 0;
+	padding: 0;
+	z-index: 4;
+	opacity: 0;
+	color: #777;
+  left: -300px;
+  width: 300px;
+  height: 100%;
+	position: fixed;
+	background-color: #fff;
+	border-right: solid 1px rgba(0,0,0,0.2);
+  transition: all 350ms cubic-bezier(.6, .05, .28, .91);
+}
+
+.sidebar #box.active {
+  left: 0;
+  opacity: 1;
+}
+
+.sidebar #items {
+  top: 28px;
+	position: relative;
+	border-top: dotted 1px rgba(0,0,0,0.2);
+}
+
+.sidebar #items .separator {
+  border: 0;
+  padding: 0;
+  height: 1px;
+  margin: 15px auto;
+  background: rgba(0,0,0,0.1);
+}
+
+.sidebar .item {
+	margin: 0;
+	padding: 0;
+  display: flex;
+	font-size: 13px;
+	min-height: 38px;
+	line-height: 38px;
+  align-items: center;
+	background-color: #fff;
+  border-left: solid 3px #fff;
+  justify-content: space-between;
+	transition: 300ms ease border-color;
+  font-family: "Segoe UI", Tahoma, sans-serif;
+}
+
+.sidebar .item[active] {
+	border-left: solid 3px #e00606;
+}
+
+.sidebar .item label {
+	padding: 0;
+  color: #333;
+	width: auto;
+  font-size: 13px;
+  min-width: 58px;
+	overflow: hidden;
+	user-select: none;
+  text-indent: 10px;
+	white-space: nowrap;
+	display: inline-block;
+	vertical-align: middle;
+	text-overflow: ellipsis;
+  font-family: "Segoe UI", Tahoma, sans-serif;
+}
+
+.sidebar .item input {
+	margin: 0;
+	border: 0;
+	padding: 0;
+	color: #333;
+	outline: none;
+	text-align: center;
+	vertical-align: middle;
+}
+
+.sidebar .item input[type="checkbox"] {
+  margin: auto 10px;
+}
+
+.sidebar .item textarea {
+  margin: 0;
+  width: 100%;
+  height: 78px;
+  outline: none;
+  color: #178de9;
+  font-size: 13px;
+  padding: 5px 10px;
+  line-height: 20px;
+  margin-right: 10px;
+  box-sizing: border-box;
+  border: solid 1px rgba(0,0,0,0.1);
+  font-family: "Segoe UI", Tahoma, sans-serif;
+}
+
+.sidebar .item input[type="password"] {
+  width: 100%;
+  height: 42px;
+  outline: none;
+  color: #178de9;
+  margin: 10px 0;
+  padding: 0 10px;
+  font-size: 13px;
+  text-align: left;
+  margin-right: 10px;
+  box-sizing: border-box;
+  border: solid 1px rgba(0,0,0,0.1);
+  font-family: "Segoe UI", Tahoma, sans-serif;
+}
+
+.sidebar .name {
+  top: 16px;
+  font-size: 13px;
+  font-weight: 600;
+  user-select: none;
+	margin: 0 0 0 10px;
+  position: relative;
+}
+
+.sidebar .description {
+  padding: 0;
+  display: flex;
+  margin: 0 10px;
+  flex-flow: column;
+  justify-content: center;
+  align-items: flex-start;
+  width: calc(100% - 20px);
+}
+
+.sidebar .description p {
+  border: 0;
+  margin: 0;
+  color: #777;
+  width: 100%;
+  padding: 5px;
+  font-size: 13px;
+  line-height: 22px;
+  text-align: justify;
+  font-family: "Segoe UI", Tahoma, sans-serif;
+}
+
+@keyframes rotate {
+  0% {transform: rotate(0deg)}
+  10% {transform: rotate(36deg)}
+  20% {transform: rotate(72deg)}
+  30% {transform: rotate(108deg)}
+  40% {transform: rotate(144deg)}
+  50% {transform: rotate(180deg)}
+  60% {transform: rotate(216deg)}
+  70% {transform: rotate(252deg)}
+  80% {transform: rotate(288deg)}
+  90% {transform: rotate(324deg)}
+  100% {transform: rotate(360deg)}
+}
+
+html[context="app"] .sidebar #box {
+  border-bottom: solid 1px rgba(0,0,0,.2);
+}

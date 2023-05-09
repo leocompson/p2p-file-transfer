@@ -1,0 +1,671 @@
+:root {
+  --percent: 0%;
+  --pcolor: 0%;
+}
+
+body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  font-size: 12px;
+  overflow: hidden;
+  user-select: none;
+  font-family: "Segoe UI", Tahoma, sans-serif;
+}
+
+.toolbar {
+  right: 0px;
+  position: absolute;
+}
+
+.toolbar table {
+  border-spacing: 0;
+  table-layout: fixed;
+}
+
+.toolbar table tr td {
+  padding: 0;
+  width: 42px;
+  height: 42px;
+  cursor: pointer;
+  user-select: none;
+  text-align: center;
+  transition: 300ms ease all;
+}
+
+.toolbar table tr td:hover {
+  background-color: rgba(0,0,0,0.05);
+}
+
+.toolbar table tr td svg {
+  fill: #777;
+  pointer-events: none;
+  vertical-align: middle;
+}
+
+.reset, .reload, .download {
+  right: 0;
+  border: 0;
+  padding: 0;
+  width: 42px;
+  height: 42px;
+  display: flex;
+  cursor: pointer;
+  overflow: hidden;
+  position: absolute;
+  align-items: center;
+  justify-content: center;
+  transition: 300ms ease all;
+  background-color: transparent;
+}
+
+.download[disabled] {
+  opacity: 0.25;
+  pointer-events: none;
+}
+
+.reset:hover, .reload:hover, .download:hover {
+  background-color: rgba(0,0,0,0.05);
+}
+
+.reset svg, .reload svg, .download svg {
+  fill: #777;
+  pointer-events: none;
+  vertical-align: middle;
+}
+
+.reload {
+  top: 0;
+}
+
+.reset {
+  top: 42px;
+}
+
+.download {
+  top: 84px;
+}
+
+.toolbar {
+  top: 126px;
+}
+
+.container {
+  border: 0;
+  padding: 0;
+  margin: auto;
+  height: 100vh;
+  display: flex;
+  max-width: 800px;
+  flex-flow: column;
+  align-items: center;
+  background-color: #fff;
+  justify-content: center;
+  width: calc(100vw - 84px);
+  border-left: solid 1px rgba(0,0,0,0.1);
+  border-right: solid 1px rgba(0,0,0,0.1);
+}
+
+.container .dialog {
+  top: 0;
+  border: 0;
+  padding: 0;
+  margin: auto;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  position: fixed;
+  max-width: 800px;
+  flex-flow: column;
+  align-items: center;
+  background-color: #fff;
+  justify-content: center;
+}
+
+.container .dialog .logo {
+  margin: 0;
+  width: 100%;
+  height: 200px;
+  background: url('resources/icon.png') no-repeat center center;
+  background-size: 72px;
+}
+
+.container .dialog .title {
+  top: 0;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  color: #555;
+  height: 42px;
+  font-size: 18px;
+  line-height: 42px;
+  position: absolute;
+  text-align: center;
+  font-family: "Segoe UI", Tahoma, sans-serif;
+}
+
+.container .dialog .text {
+  color: #555;
+  margin: 5px 0;
+  font-size: 24px;
+  user-select: none;
+  font-family: "Segoe UI", Tahoma, sans-serif;
+}
+
+.container .dialog .button {
+  border: 0;
+  outline: 0;
+  padding: 0;
+  width: 100%;
+  color: #fff;
+  height: 58px;
+  font-size: 18px;
+  cursor: pointer;
+  font-weight: 600;
+  max-width: 250px;
+  line-height: 58px;
+  margin: 10px auto;
+  text-align: center;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  background-color: #808080;
+  transition: 300ms ease all;
+  font-family: "Segoe UI", Tahoma, sans-serif;
+}
+
+.container .dialog .button:hover {
+  background-color: #707070;
+}
+
+.container .content {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  max-height: calc(100vh - 84px);
+}
+
+.container details {
+  width: 100%;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.container details summary {
+  border: 0;
+  margin: 0;
+  color: grey;
+  width: 100%;
+  height: 38px;
+  cursor: pointer;
+  font-size: 13px;
+  padding: 0 15px;
+  font-weight: 600;
+  line-height: 38px;
+  letter-spacing: 1px;
+  box-sizing: border-box;
+  text-transform: uppercase;
+  background-color: transparent;
+  font-family: "Segoe UI", Tahoma, sans-serif;
+}
+
+.container .wrapper {
+  width: 100%;
+  padding: 10px;
+  display: flex;
+  min-height: 300px;
+  flex-flow: column;
+  position: relative;
+  align-items: center;
+  box-sizing: border-box;
+  justify-content: center;
+  background-color: transparent;
+}
+
+.container .wrapper .icon {
+  width: 256px;
+  margin: 10px;
+  height: 256px;
+  display: flex;
+  text-align: center;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+}
+
+.container .wrapper .icon .progress-outer,
+.container .wrapper .icon .progress-inner {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  cursor: pointer;
+  text-align: center;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+}
+
+.container .wrapper .icon .progress-outer {
+  width: 250px;
+  height: 250px;
+  border: solid 3px #fff;
+  background-color: transparent;
+}
+
+.container .wrapper .icon .progress-inner {
+  width: 242px;
+  height: 242px;
+  background-color: #fff;
+}
+
+.container .wrapper .icon svg {
+  display: none;
+  pointer-events: none;
+  vertical-align: middle;
+}
+
+.container .fileio-section .wrapper .icon {
+  top: 0;
+  position: absolute;
+  border: solid 3px #178de9;
+}
+
+.container .fileio-section .wrapper .icon {
+  background: conic-gradient(var(--pcolor) var(--percent), transparent var(--percent));
+}
+
+.container .fileio-section .wrapper .current {
+  top: 42px;
+  border: 0;
+  padding: 0;
+  left: 68px;
+  height: 42px;
+  display: none;
+  color: #ff8700;
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 42px;
+  text-align: center;
+  position: absolute;
+  letter-spacing: 5px;
+  background-color: transparent;
+  font-family: "Segoe UI", Tahoma, sans-serif;
+}
+
+.container .fileio-section .wrapper .icon .add {
+  fill: #ff8700;
+}
+
+.container .fileio-section .wrapper .icon .queue {
+  fill: #ff8700;
+}
+
+.container .fileio-section .wrapper .icon .error {
+  fill: #ff8700;
+}
+
+.container .fileio-section .wrapper .icon .nopeers {
+  fill: #ff8700;
+}
+
+.container .fileio-section .wrapper .icon .loader {
+  fill: #555555;
+}
+
+.container .fileio-section .wrapper .icon .sender,
+.container .fileio-section .wrapper .icon .receiver {
+  fill: #777777;
+}
+
+.container .fileio-section .wrapper .icon .sender,
+.container .fileio-section .wrapper .icon .receiver {
+  padding: 0;
+  position: absolute;
+  background: transparent;
+}
+
+.container .fileio-section .wrapper .icon .sender {
+  top: 42px;
+}
+
+.container .fileio-section .wrapper .icon .receiver {
+  bottom: 42px;
+}
+
+.container .fileio-section .wrapper input[type='file'] {
+  opacity: 0;
+  z-index: 11;
+  color: #333;
+  margin: 3px;
+  width: 256px;
+  height: 256px;
+  cursor: pointer;
+  font-size: 12px;
+  border-radius: 50%;
+  background: #777777;
+  font-family: "Segoe UI", Tahoma, sans-serif;
+}
+
+.container .fileio-section .wrapper .text,
+.container .fileio-section .wrapper .time {
+  width: 100%;
+  color: #333;
+  font-size: 14px;
+  padding: 0 10px;
+  margin-top: 15px;
+  overflow: hidden;
+  text-align: center;
+  white-space: nowrap;
+  letter-spacing: 1px;
+  box-sizing: border-box;
+  text-overflow: ellipsis;
+  font-family: "Segoe UI", Tahoma, sans-serif;
+}
+
+.container .sender-section .wrapper {
+  display: none;
+}
+
+.container .sender-section .wrapper[render] {
+  display: flex;
+}
+
+.container .sender-section .wrapper .token {
+  width: 100%;
+  color: #555;
+  height: 42px;
+  display: flex;
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 42px;
+  flex-flow: column;
+  margin: 10px auto;
+  user-select: text;
+  align-items: center;
+  letter-spacing: 10px;
+  justify-content: center;
+  font-family: "Segoe UI", Tahoma, sans-serif;
+}
+
+.container .sender-section .wrapper .icon {
+  margin: 10px;
+}
+
+.container .sender-section .wrapper .icon svg {
+  fill: #555;
+  display: block;
+}
+
+.container .sender-section .wrapper .text {
+  width: 100%;
+  padding: 0 10px;
+  max-width: 470px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+}
+
+.container .sender-section .wrapper .link {
+  display: none;
+  font-size: 18px;
+  max-width: 470px;
+  letter-spacing: 0;
+  line-height: 32px;
+  text-align: center;
+  word-break: break-all;
+  text-decoration: none;
+  font-family: "Segoe UI", Tahoma, sans-serif;
+}
+
+.container .sender-section .wrapper .copy {
+  font-size: 18px;
+  cursor: pointer;
+  max-width: 470px;
+  letter-spacing: 0;
+  line-height: 32px;
+  text-align: center;
+  position: absolute;
+  word-break: break-all;
+  text-decoration: none;
+  left: calc(50% + 158px);
+  bottom: calc(50% - 92px);
+  font-family: "Segoe UI", Tahoma, sans-serif;
+}
+
+.container .sender-section .wrapper .copy svg {
+  fill: #d1d1d1;
+  pointer-events: none;
+  vertical-align: middle;
+  transition: 300ms ease all;
+}
+
+.container .sender-section .wrapper .copy:hover svg {
+  fill: #333;
+}
+
+.container .sender-section .wrapper .copy[color] svg {
+  fill: #178de9;
+}
+
+.container .sender-section .text, 
+.container .receiver-section .text {
+  width: 100%;
+  color: #333;
+  font-size: 14px;
+  padding: 0 10px;
+  max-width: 470px;
+  text-align: justify;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, sans-serif;
+}
+
+.container .receiver-section .text {
+  line-height: 28px;
+}
+
+.container .receiver-section input {
+  width: 100%;
+  color: #555;
+  height: 72px;
+  outline: none;
+  padding: 0 10px;
+  font-size: 28px;
+  max-width: 470px;
+  margin-top: 20px;
+  text-align: center;
+  letter-spacing: 10px;
+  background-color: #fff;
+  box-sizing: border-box;
+  border: solid 1px rgba(0,0,0,0.1);
+}
+
+.container .receiver-section input[type='number']::-webkit-outer-spin-button,
+.container .receiver-section input[type='number']::-webkit-inner-spin-button {
+  display: none;
+}
+
+.container .receiver-section input[type='button'] {
+  border: 0;
+  color: #178de9;
+  cursor: pointer;
+  background: #fff;
+  font-weight: 600;
+  margin-top: 10px;
+  letter-spacing: 5px;
+  transition: 300ms ease all;
+}
+
+.container .receiver-section input[type='button']:hover {
+  background: rgba(0,0,0,0.1);
+}
+
+.footer {
+  left: 0;
+  bottom: 0;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 42px;
+  display: flex;
+  flex-flow: row;
+  font-size: 11px;
+  font-weight: 600;
+  text-align: left;
+  line-height: 42px;
+  position: absolute;
+  background-color: #fff;
+  justify-content: space-between;
+  border-top: solid 1px rgba(0,0,0,0.1);
+}
+
+.footer span {
+  color: #333;
+  padding: 0 10px;
+  letter-spacing: 1px;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, sans-serif;
+}
+
+.footer #now {
+  display: none;
+}
+
+.footer #now[render] {
+  display: block;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+
+@keyframes zoom-in-out {
+  0% {
+    transform: scale(1.0, 1.0);
+  }
+  50% {
+    transform: scale(1.5, 1.5);
+  }
+  100% {
+    transform: scale(1.0, 1.0);
+  }
+}
+
+html[receiver] .sender-section {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+html[sender] .receiver-section {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+html[fileio] .sender-section, 
+html[fileio] .receiver-section {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+html[sender] .container .sender-section summary {
+  color: #ff8700;
+}
+
+html[receiver] .container .receiver-section summary {
+  color: #ff8700;
+}
+
+html[state="progress"] .container .fileio-section .wrapper .icon {
+  cursor: pointer;
+}
+
+html[state="progress"] .container .fileio-section .wrapper .icon .add {
+  transform: rotate(45deg);
+}
+
+html[state="progress"][rule="sender"] .container .fileio-section .wrapper .icon .sender {
+  display: block;
+}
+
+html[state="progress"][rule="receiver"] .container .fileio-section .wrapper .icon .receiver {
+  display: block;
+}
+
+html[nopeers][fileio] .container .fileio-section .wrapper .current  {
+  display: block;
+}
+
+html[error] .container .fileio-section .wrapper *,
+html[queued] .container .fileio-section .wrapper *,
+html[nopeers] .container .fileio-section .wrapper *,
+html[loading] .container .fileio-section .wrapper * {
+  cursor: default;
+}
+
+html[error] .container .fileio-section .wrapper input[type='file'],
+html[queued] .container .fileio-section .wrapper input[type='file'],
+html[nopeers] .container .fileio-section .wrapper input[type='file'],
+html[loading] .container .fileio-section .wrapper input[type='file'],
+html[state="progress"] .container .fileio-section .wrapper input[type='file'] {
+  pointer-events: none;
+}
+
+html[queued] .container .fileio-section .wrapper .icon svg {
+  display: none;
+}
+
+html[queued] .container .fileio-section .wrapper .icon .queue {
+  display: block;
+}
+
+html[ready] .container .fileio-section .wrapper .icon svg {
+  display: none;
+}
+
+html[ready] .container .fileio-section .wrapper .icon .add {
+  display: block;
+}
+
+html[error] .container .fileio-section .wrapper .icon svg {
+  display: none;
+}
+
+html[error] .container .fileio-section .wrapper .icon .error {
+  display: block;
+}
+
+html[nopeers] .container .fileio-section .wrapper .icon svg {
+  display: none;
+}
+
+html[nopeers] .container .fileio-section .wrapper .icon .nopeers {
+  display: block;
+}
+
+html[loading] .container .fileio-section .wrapper .icon svg {
+  display: none;
+}
+
+html[loading] .container .fileio-section .wrapper .icon .loader {
+  display: block;
+}
+
+html[context="webapp"] .toolbar {
+  display: none;
+}
+
+@media (max-width: 884px) {
+  .container {
+    border: 0;
+  }
+}

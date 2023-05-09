@@ -1,0 +1,30 @@
+{
+  "version": "0.1.0",
+  "manifest_version": 3,
+  "name": "P2P File Transfer",
+  "permissions": ["storage", "contextMenus"],
+  "homepage_url": "https://mybrowseraddon.com/p2p-file-transfer.html",
+  "description": "Generate QR code from any text and save it as an SVG image",
+  "commands": {
+    "_execute_action": {}
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "P2P File Transfer",
+    "default_icon": {
+      "16": "data/icons/16.png",
+      "32": "data/icons/32.png",
+      "48": "data/icons/48.png",
+      "64": "data/icons/64.png"
+    }
+  },
+  "icons": {
+    "16": "data/icons/16.png",
+    "32": "data/icons/32.png",
+    "48": "data/icons/48.png",
+    "64": "data/icons/64.png",
+    "128": "data/icons/128.png"
+  }
+}
