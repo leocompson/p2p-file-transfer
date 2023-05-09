@@ -12,5 +12,5 @@ Webapp & PWA: https://webbrowsertools.com/p2p-file-transfer/
 
 --------------------------------------------------------------
 
-Webpage: https://pyget.com/
+Webpage: https://pyget.com/  
 Support & FAQ: https://mybrowseraddon.com/p2p-file-transfer.html 
