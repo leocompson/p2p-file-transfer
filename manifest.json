@@ -4,7 +4,7 @@
   "name": "P2P File Transfer",
   "permissions": ["storage", "contextMenus"],
   "homepage_url": "https://mybrowseraddon.com/p2p-file-transfer.html",
-  "description": "Generate QR code from any text and save it as an SVG image",
+  "description": "Easily transfer files between two or more peers securely.",
   "commands": {
     "_execute_action": {}
   },

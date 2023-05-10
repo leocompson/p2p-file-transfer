@@ -96,6 +96,7 @@ body {
   margin: auto;
   height: 100vh;
   display: flex;
+  min-width: 300px;
   max-width: 800px;
   flex-flow: column;
   align-items: center;
@@ -223,8 +224,8 @@ body {
   position: relative;
   align-items: center;
   box-sizing: border-box;
+  background-color: #fff;
   justify-content: center;
-  background-color: transparent;
 }
 
 .container .wrapper .icon {
@@ -431,7 +432,7 @@ body {
   position: absolute;
   word-break: break-all;
   text-decoration: none;
-  left: calc(50% + 158px);
+  left: calc(50% + 152px);
   bottom: calc(50% - 92px);
   font-family: "Segoe UI", Tahoma, sans-serif;
 }
@@ -458,7 +459,7 @@ body {
   font-size: 14px;
   padding: 0 10px;
   max-width: 470px;
-  text-align: justify;
+  text-align: left;
   margin-bottom: 10px;
   letter-spacing: 1px;
   box-sizing: border-box;
@@ -514,7 +515,7 @@ body {
   height: 42px;
   display: flex;
   flex-flow: row;
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 600;
   text-align: left;
   line-height: 42px;
@@ -525,15 +526,20 @@ body {
 }
 
 .footer span {
+  flex: 1;
   color: #333;
   padding: 0 10px;
+  overflow: hidden;
+  white-space: nowrap;
   letter-spacing: 1px;
   box-sizing: border-box;
+  text-overflow: ellipsis;
   font-family: "Segoe UI", Tahoma, sans-serif;
 }
 
 .footer #now {
   display: none;
+  text-align: right;
 }
 
 .footer #now[render] {
@@ -667,5 +673,11 @@ html[context="webapp"] .toolbar {
 @media (max-width: 884px) {
   .container {
     border: 0;
+  }
+}
+
+@media (max-width: 500px) {
+  .container .sender-section .wrapper .copy {
+    display: none;
   }
 }
