@@ -4,8 +4,8 @@ This web application is using WebSocket and WebRTC technologies to make the conn
 
 You can install this app as a PWA on your mobile device, moreover, it is available as a browser extension as well as a web application:
 
-Chrome:   
-Edge:   
+Chrome: https://chrome.google.com/webstore/detail/mhimbdcbjofgbkmgnojlmkigajlgppon  
+Edge: https://microsoftedge.microsoft.com/addons/detail/obngaangnbilhdnjpoihgmejldnfbagc   
 Webapp & PWA: https://webbrowsertools.com/p2p-file-transfer/  
 
 --------------------------------------------------------------
