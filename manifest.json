@@ -1,8 +1,7 @@
 {
-  "version": "0.1.0",
+  "version": "0.1.1",
   "manifest_version": 3,
   "name": "P2P File Transfer",
-  "permissions": ["storage", "contextMenus"],
   "homepage_url": "https://mybrowseraddon.com/p2p-file-transfer.html",
   "description": "Easily transfer files between two or more peers securely.",
   "commands": {
@@ -11,6 +10,10 @@
   "background": {
     "service_worker": "background.js"
   },
+  "permissions": [
+    "storage", 
+    "contextMenus"
+  ],
   "action": {
     "default_title": "P2P File Transfer",
     "default_icon": {

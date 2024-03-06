@@ -7,7 +7,7 @@ body {
   margin: 0;
   width: 100%;
   height: 100%;
-  font-size: 12px;
+  font-size: 13px;
   overflow: hidden;
   user-select: none;
   font-family: "Segoe UI", Tahoma, sans-serif;
@@ -38,7 +38,7 @@ body {
 }
 
 .toolbar table tr td svg {
-  fill: #777;
+  fill: #555;
   pointer-events: none;
   vertical-align: middle;
 }
@@ -69,7 +69,7 @@ body {
 }
 
 .reset svg, .reload svg, .download svg {
-  fill: #777;
+  fill: #555;
   pointer-events: none;
   vertical-align: middle;
 }
@@ -346,7 +346,7 @@ body {
   width: 256px;
   height: 256px;
   cursor: pointer;
-  font-size: 12px;
+  font-size: 13px;
   border-radius: 50%;
   background: #777777;
   font-family: "Segoe UI", Tahoma, sans-serif;
@@ -515,7 +515,7 @@ body {
   height: 42px;
   display: flex;
   flex-flow: row;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 600;
   text-align: left;
   line-height: 42px;

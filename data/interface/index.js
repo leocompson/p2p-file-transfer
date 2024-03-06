@@ -453,7 +453,7 @@ var config = {
         "token": ''
       },
       "options": {
-        "ORIGIN": "wss://file.meetingserver.repl.co/[CHANNEL_ID]?apiKey=[API_KEY]",
+        "ORIGIN": "wss://p2p-2zan.onrender.com/[CHANNEL_ID]?apiKey=[API_KEY]",
         "KEY": "REVyV2Y0M0hKZk5CMjFSa05JY05IWjBkRFIzVEhZN0c5SGY1MzRGZEV3TldtaDNRVUd4d1RSS2k4NDZ5SFRnZQ==",
         //
         set datetime (val) {config.storage.write("datetime", val)},

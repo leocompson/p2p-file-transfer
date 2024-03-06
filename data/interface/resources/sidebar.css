@@ -32,12 +32,12 @@
 	width: 14px;
   height: 2px;
   margin-bottom: 5px;
-  background-color: grey;
+  background-color: #555;
   transition: transform 500ms cubic-bezier(.6, .05, .28, .91), opacity 500ms, background-color 250ms;
 }
 
 .sidebar #btn.active #middle {opacity: 0}
-.sidebar #btn.active div {background-color: #777}
+.sidebar #btn.active div {background-color: #555}
 .sidebar #btn.active #top {transform: translateY(4px) rotate(-135deg)}
 .sidebar #btn.active #bottom {transform: translateY(-10px) rotate(-45deg)}
 
@@ -52,7 +52,7 @@
 	padding: 0;
 	z-index: 4;
 	opacity: 0;
-	color: #777;
+	color: #555;
   left: -300px;
   width: 300px;
   height: 100%;
@@ -182,7 +182,7 @@
 .sidebar .description p {
   border: 0;
   margin: 0;
-  color: #777;
+  color: #333;
   width: 100%;
   padding: 5px;
   font-size: 13px;
