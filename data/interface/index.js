@@ -173,66 +173,85 @@ var config = {
     },
     "change": function (filelist) {
       if (config.app.p2p.engine) {
-        const files = [...filelist];
-        if (files) {
-          if (files.length) {
-            try {
-              let current = 0;
-              /*  */
-              const file = files[0];
-              const filesize = file.size;
-              const filename = file.name;
-              const filetype = file.type;
-              const chunksize = 256 * 1024;
-              const starttime = (new Date()).getTime();
-              const totalchunks = Math.ceil(filesize / chunksize);
-              const text = document.querySelector(".content .fileio-section .text");
-              /*  */
-              config.app.p2p.engine.send(JSON.stringify({
-                "name": filename,
-                "size": filesize,
-                "type": filetype,
-                "starttime": starttime,
-                "chunksize": chunksize,
-                "totalchunks": totalchunks
-              }), "p2p");
-              /*  */
-              config.app.p2p.reader = new FileReader();
-              config.app.p2p.reader.onload = function (e) {
-                const chunk = e.target.result;
-                config.app.p2p.engine.send(chunk, "p2p");
-                current++;
-                /*  */
-                const inputfile = document.getElementById("inputfile");
-                const progress = (current / totalchunks) * 100;
-                const percent = Math.floor(progress) + '%';
-                /*  */
-                text.textContent = filename + " (" + percent + ')';
-                document.documentElement.setAttribute("rule", "sender");
-                document.documentElement.setAttribute("state", "progress");
-                document.documentElement.style.setProperty("--percent", percent);
-                document.documentElement.style.setProperty("--pcolor", "#777777");
-                /*  */
-                if (current < totalchunks) {
-                  const start = current * chunksize;
-                  const end = Math.min(start + chunksize, filesize);
-                  config.app.p2p.chunk = file.slice(start, end);
+        if (filelist) {
+          const files = [...filelist];
+          if (files) {
+            if (files.length) {
+              try {
+                if (files[0]) {
+                  const file = files[0];
+                  const filesize = file.size;
+                  const filename = file.name;
+                  const filetype = file.type;
+                  /*  */
+                  if (filesize) {
+                    let current = 0;
+                    /*  */
+                    const chunksize = 256 * 1024;
+                    const starttime = (new Date()).getTime();
+                    const totalchunks = Math.ceil(filesize / chunksize);
+                    const text = document.querySelector(".content .fileio-section .text");
+                    /*  */
+                    config.app.p2p.engine.send(JSON.stringify({
+                      "name": filename,
+                      "size": filesize,
+                      "type": filetype,
+                      "starttime": starttime,
+                      "chunksize": chunksize,
+                      "totalchunks": totalchunks
+                    }), "p2p");
+                    /*  */
+                    config.app.p2p.reader = new FileReader();
+                    config.app.p2p.reader.onload = function (e) {
+                      const chunk = e.target.result;
+                      config.app.p2p.engine.send(chunk, "p2p");
+                      current++;
+                      /*  */
+                      const inputfile = document.getElementById("inputfile");
+                      const progress = (current / totalchunks) * 100;
+                      const percent = Math.floor(progress) + '%';
+                      /*  */
+                      text.textContent = filename + " (" + percent + ')';
+                      document.documentElement.setAttribute("rule", "sender");
+                      document.documentElement.setAttribute("state", "progress");
+                      document.documentElement.style.setProperty("--percent", percent);
+                      document.documentElement.style.setProperty("--pcolor", "#777777");
+                      /*  */
+                      if (current < totalchunks) {
+                        const start = current * chunksize;
+                        const end = Math.min(start + chunksize, filesize);
+                        config.app.p2p.chunk = file.slice(start, end);
+                      } else {
+                        window.setTimeout(function () {
+                          current = 0;
+                          inputfile.value = '';
+                          config.app.action.cleanup();
+                        }, 300);
+                      }
+                    };
+                    /*  */
+                    config.app.p2p.chunk = file.slice(0, chunksize);
+                    config.app.p2p.reader.readAsArrayBuffer(config.app.p2p.chunk);
+                  } else {
+                    config.app.action.setup("error", "The file size is 0! Please add a valid file and try again.", "Please reload the app and try again.");
+                  }
                 } else {
-                  window.setTimeout(function () {
-                    current = 0;
-                    inputfile.value = '';
-                    config.app.action.cleanup();
-                  }, 300);
+                  config.app.action.setup("error", "No file is added! Please add a file and try again.", "Please reload the app and try again.");
                 }
-              };
-              /*  */
-              config.app.p2p.chunk = file.slice(0, chunksize);
-              config.app.p2p.reader.readAsArrayBuffer(config.app.p2p.chunk);
-            } catch (e) {
-              config.app.action.setup("error", "An unexpected error happened!", "Please reload the app and try again.");
+              } catch (e) {
+                config.app.action.setup("error", "An unexpected error happened!", "Please reload the app and try again.");
+              }
+            } else {
+              config.app.action.setup("error", "No file is added! Please add a file and try again.", "Please reload the app and try again.");
             }
+          } else {
+            config.app.action.setup("error", "No file is added! Please add a file and try again.", "Please reload the app and try again.");
           }
+        } else {
+          config.app.action.setup("error", "No file is added! Please add a file and try again.", "Please reload the app and try again.");
         }
+      } else {
+        config.app.action.setup("error", "The app is not ready yet!", "Please wait or reload the app and try again.");
       }
     }
   },
@@ -789,5 +808,6 @@ var config = {
 };
 
 config.port.connect();
+
 window.addEventListener("load", config.load, false);
 window.addEventListener("resize", config.resize.method, false);

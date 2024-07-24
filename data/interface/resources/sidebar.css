@@ -25,15 +25,15 @@
   left: 14px;
 	position: fixed;
 	cursor: pointer;
-  transition: left 500ms cubic-bezier(.6, .05, .28, .91);
+  transition: left 700ms cubic-bezier(.6, .05, .28, .91);
 }
 
 .sidebar #btn div {
 	width: 14px;
   height: 2px;
   margin-bottom: 5px;
-  background-color: #555;
-  transition: transform 500ms cubic-bezier(.6, .05, .28, .91), opacity 500ms, background-color 250ms;
+  background-color: #333;
+  transition: transform 700ms cubic-bezier(.6, .05, .28, .91), opacity 500ms, background-color 250ms;
 }
 
 .sidebar #btn.active #middle {opacity: 0}
@@ -58,8 +58,8 @@
   height: 100%;
 	position: fixed;
 	background-color: #fff;
-	border-right: solid 1px rgba(0,0,0,0.2);
-  transition: all 350ms cubic-bezier(.6, .05, .28, .91);
+	border-right: solid 1px rgba(0,0,0,0.25);
+  transition: all 700ms cubic-bezier(.6, .05, .28, .91);
 }
 
 .sidebar #box.active {
@@ -102,7 +102,7 @@
 
 .sidebar .item label {
 	padding: 0;
-  color: #333;
+  color: #000;
 	width: auto;
   font-size: 13px;
   min-width: 58px;
@@ -120,7 +120,7 @@
 	margin: 0;
 	border: 0;
 	padding: 0;
-	color: #333;
+	color: #000;
 	outline: none;
 	text-align: center;
 	vertical-align: middle;
@@ -137,11 +137,12 @@
   outline: none;
   color: #178de9;
   font-size: 13px;
+  font-weight: 600;
   padding: 5px 10px;
   line-height: 20px;
   margin-right: 10px;
   box-sizing: border-box;
-  border: solid 1px rgba(0,0,0,0.1);
+  border: solid 1px rgba(0,0,0,0.25);
   font-family: "Segoe UI", Tahoma, sans-serif;
 }
 
@@ -156,7 +157,7 @@
   text-align: left;
   margin-right: 10px;
   box-sizing: border-box;
-  border: solid 1px rgba(0,0,0,0.1);
+  border: solid 1px rgba(0,0,0,0.25);
   font-family: "Segoe UI", Tahoma, sans-serif;
 }
 

@@ -69,7 +69,7 @@ body {
 }
 
 .reset svg, .reload svg, .download svg {
-  fill: #555;
+  fill: #333;
   pointer-events: none;
   vertical-align: middle;
 }
@@ -137,7 +137,7 @@ body {
   margin: 0;
   padding: 0;
   width: 100%;
-  color: #555;
+  color: #333;
   height: 42px;
   font-size: 18px;
   line-height: 42px;
@@ -170,13 +170,13 @@ body {
   text-align: center;
   letter-spacing: 3px;
   text-transform: uppercase;
-  background-color: #808080;
-  transition: 300ms ease all;
+  background-color: #797979;
+  transition: 300ms ease background-color;
   font-family: "Segoe UI", Tahoma, sans-serif;
 }
 
 .container .dialog .button:hover {
-  background-color: #707070;
+  background-color: #696969;
 }
 
 .container .content {
@@ -200,7 +200,7 @@ body {
 .container details summary {
   border: 0;
   margin: 0;
-  color: grey;
+  color: #333;
   width: 100%;
   height: 38px;
   cursor: pointer;
@@ -483,7 +483,7 @@ body {
   letter-spacing: 10px;
   background-color: #fff;
   box-sizing: border-box;
-  border: solid 1px rgba(0,0,0,0.1);
+  border: solid 1px rgba(0,0,0,0.25);
 }
 
 .container .receiver-section input[type='number']::-webkit-outer-spin-button,
