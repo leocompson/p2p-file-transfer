@@ -207,6 +207,7 @@ var config = {
                       config.app.p2p.engine.send(chunk, "p2p");
                       current++;
                       /*  */
+                      const theme = document.documentElement.getAttribute("theme");
                       const inputfile = document.getElementById("inputfile");
                       const progress = (current / totalchunks) * 100;
                       const percent = Math.floor(progress) + '%';
@@ -215,7 +216,7 @@ var config = {
                       document.documentElement.setAttribute("rule", "sender");
                       document.documentElement.setAttribute("state", "progress");
                       document.documentElement.style.setProperty("--percent", percent);
-                      document.documentElement.style.setProperty("--pcolor", "#777777");
+                      document.documentElement.style.setProperty("--pcolor", theme === "light" ? "#777777" : "#ebebeb");
                       /*  */
                       if (current < totalchunks) {
                         const start = current * chunksize;
@@ -257,8 +258,9 @@ var config = {
   },
   "load": function () {
     const now = document.getElementById("now");
-    const itoken = document.getElementById("token");
+    const theme = document.querySelector(".theme");
     const reset = document.querySelector(".reset");
+    const itoken = document.getElementById("token");
     const reload = document.querySelector(".reload");
     const iserver = document.getElementById("server");
     const support = document.getElementById("support");
@@ -324,6 +326,14 @@ var config = {
       dialog.remove();
       config.app.p2p.context = "sender";
       config.app.start();
+    }, false);
+    /*  */
+    theme.addEventListener("click", function () {
+      let attribute = document.documentElement.getAttribute("theme");
+      attribute = attribute === "dark" ? "light" : "dark";
+      /*  */
+      document.documentElement.setAttribute("theme", attribute);
+      config.storage.write("theme", attribute);
     }, false);
     /*  */
     receiver.addEventListener("click", function () {
@@ -418,6 +428,7 @@ var config = {
     config.app.p2p.metrics.url = new URL(document.location);
     config.app.p2p.metrics.param = config.app.p2p.metrics.url.searchParams.get("token");
     config.storage.load(function () {
+      const theme = config.storage.read("theme");
       const SHOWKEY = config.storage.read("servertoken") !== undefined;
       /*  */
       iserver.value = config.app.p2p.options.servername;
@@ -425,6 +436,7 @@ var config = {
       automatic.checked = config.app.p2p.options.automaticdownload;
       if (SHOWKEY) itoken.value = config.app.p2p.options.servertoken;
       config.app.p2p.metrics.token = config.storage.read("currenttoken");
+      document.documentElement.setAttribute("theme", theme !== undefined ? theme : "light");
       config.app.p2p.options.datetime ? now.setAttribute("render", '') : now.removeAttribute("render");
       config.app.p2p.options.automaticdownload ? download.setAttribute("disabled", '') : download.removeAttribute("disabled");
       /*  */
@@ -759,6 +771,7 @@ var config = {
             chunksreceived++;
             /*  */
             const endtime = (new Date()).getTime();
+            const theme = document.documentElement.getAttribute("theme");
             const duration = ((endtime - config.app.p2p.info.starttime) / 1000) / chunksreceived;
             const bitspersec = ((config.app.p2p.info.chunksize * 8) / duration);
             const progress = (chunksreceived / config.app.p2p.info.totalchunks) * 100;
@@ -769,7 +782,7 @@ var config = {
             const percent = Math.floor(progress) + '%';
             /*  */
             text.textContent = config.app.p2p.info.name + ' (' + percent + ')';
-            document.documentElement.style.setProperty("--pcolor", "#777777");
+            document.documentElement.style.setProperty("--pcolor", theme === "light" ? "#777777" : "#ebebeb");
             document.documentElement.style.setProperty("--percent", percent);
             document.documentElement.setAttribute("state", "progress");
             document.documentElement.setAttribute("rule", "receiver");

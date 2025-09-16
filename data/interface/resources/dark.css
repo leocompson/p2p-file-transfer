@@ -1,0 +1,101 @@
+html[theme='dark'], 
+html[theme='dark'] body {
+  color: #ebebeb;
+  color-scheme: dark;
+  background-color: #1e1e1e;
+}
+
+html[theme='dark'] .container,
+html[theme='dark'] .sidebar #box,
+html[theme='dark'] .sidebar .item,
+html[theme='dark'] .container .receiver-section input {
+  color: #ebebeb;
+  background-color: #1e1e1e;
+}
+
+html[theme='dark'] .sidebar #btn div {
+  background-color: #ebebeb;
+}
+
+html[theme='dark'] .container .dialog .button {
+  background-color: rgb(255 255 255 / 5%);
+}
+
+html[theme='dark'] .sidebar #items .separator {
+  background-color: rgb(255 255 255 / 10%);
+}
+
+html[theme='dark'] .footer,
+html[theme='dark'] .container .dialog,
+html[theme='dark'] .container .wrapper,
+html[theme='dark'] .sidebar .item textarea,
+html[theme='dark'] .sidebar .item input[type="password"],
+html[theme='dark'] .container .wrapper .icon .progress-inner {
+  background-color: #1e1e1e;
+}
+
+html[theme='dark'] .reset:hover,
+html[theme='dark'] .theme:hover,
+html[theme='dark'] .reload:hover,
+html[theme='dark'] .download:hover,
+html[theme='dark'] .toolbar table tr td:hover {
+  background-color: rgb(255 255 255 / 10%);
+}
+
+html[theme='dark'] .container .receiver-section input[type='button'] {
+  color: #178de9;
+}
+
+html[theme='dark'] .container .sender-section .text,
+html[theme='dark'] .container .receiver-section .text {
+  color: #c1c1c1;
+}
+
+html[theme='dark'] .footer span,
+html[theme='dark'] .sidebar .item label,
+html[theme='dark'] .sidebar .description p,
+html[theme='dark'] .container .dialog .title,
+html[theme='dark'] .container details summary,
+html[theme='dark'] .container .fileio-section .wrapper .text,
+html[theme='dark'] .container .fileio-section .wrapper .time,
+html[theme='dark'] .container .sender-section .wrapper .token {
+  color: #ebebeb;
+}
+
+html[theme='dark'] .container {
+  border-color: rgb(81 81 81);
+}
+
+html[theme='dark'] .sidebar .item,
+html[theme='dark'] .container .wrapper .icon .progress-inner,
+html[theme='dark'] .container .wrapper .icon .progress-outer {
+  border-color: #1e1e1e;
+}
+
+html[theme='dark'] .sidebar #items {
+  border-color: rgb(255 255 255 / 10%);
+}
+
+html[theme='dark'] .footer,
+html[theme='dark'] .sidebar #box,
+html[theme='dark'] .sidebar .item textarea,
+html[theme='dark'] .container .dialog .button,
+html[theme='dark'] .container .receiver-section input,
+html[theme='dark'] .sidebar .item input[type="password"] {
+  border-color: rgb(255 255 255 / 25%);
+}
+
+html[theme='dark'] .reset svg,
+html[theme='dark'] .theme svg,
+html[theme='dark'] .reload svg,
+html[theme='dark'] .download svg,
+html[theme='dark'] .toolbar table tr td svg,
+html[theme='dark'] .container .fileio-section .wrapper .icon .loader,
+html[theme='dark'] .container .fileio-section .wrapper .icon .sender,
+html[theme='dark'] .container .fileio-section .wrapper .icon .receiver {
+  fill: #ebebeb;
+}
+
+html[theme='dark'] .container .dialog .logo {
+  background-image: url('logo-dark.png');
+}
